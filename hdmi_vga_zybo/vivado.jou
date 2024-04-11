@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat Apr  6 18:50:54 2024
+# Process ID: 21704
+# Current directory: C:/Users/wojte/Desktop/SystemyRekonfigurowalne/hdmi_vga_zybo
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21392 C:\Users\wojte\Desktop\SystemyRekonfigurowalne\hdmi_vga_zybo\hdmi_vga_zybo.xpr
+# Log file: C:/Users/wojte/Desktop/SystemyRekonfigurowalne/hdmi_vga_zybo/vivado.log
+# Journal file: C:/Users/wojte/Desktop/SystemyRekonfigurowalne/hdmi_vga_zybo\vivado.jou
+# Running On: LAPTOP-OULVKFP7, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 16861 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/wojte/Desktop/SystemyRekonfigurowalne/hdmi_vga_zybo/hdmi_vga_zybo.xpr
+update_compile_order -fileset sources_1
