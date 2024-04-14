@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../rgb2ycbcr.gen/sources_1/ip/add_1/sim/add_1.vhd" \
+
+nosort

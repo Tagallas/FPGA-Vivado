@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun Apr 14 21:45:52 2024
+# Process ID: 19568
+# Current directory: C:/Users/wojte/Desktop/FPGA-Vivado/simulation_models
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19528 C:\Users\wojte\Desktop\FPGA-Vivado\simulation_models\simulation_models.xpr
+# Log file: C:/Users/wojte/Desktop/FPGA-Vivado/simulation_models/vivado.log
+# Journal file: C:/Users/wojte/Desktop/FPGA-Vivado/simulation_models\vivado.jou
+# Running On: LAPTOP-OULVKFP7, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 16861 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/wojte/Desktop/FPGA-Vivado/simulation_models/simulation_models.xpr
+update_compile_order -fileset sources_1
