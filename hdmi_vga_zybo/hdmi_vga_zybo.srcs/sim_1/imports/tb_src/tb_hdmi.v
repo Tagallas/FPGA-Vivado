@@ -64,7 +64,7 @@ wire lut_vsync;
 wire [7:0] lut_red;
 wire [7:0] lut_green;
 wire [7:0] lut_blue;
-wire [2:0] sw;
+reg [2:0] sw=3'b010;
 
 vp vp_i (
     .clk(rx_pclk),

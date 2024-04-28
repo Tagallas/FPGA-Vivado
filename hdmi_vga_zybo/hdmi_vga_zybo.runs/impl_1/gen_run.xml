@@ -17,7 +17,9 @@
   <File Type="BITSTR-NKY" Name="hdmi_vga_wrapper.nky"/>
   <File Type="BITSTR-BMM" Name="hdmi_vga_wrapper_bd.bmm"/>
   <File Type="BITSTR-MMI" Name="hdmi_vga_wrapper.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="hdmi_vga_wrapper_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-SYSDEF" Name="hdmi_vga_wrapper.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="hdmi_vga_wrapper_methodology_drc_routed.pb"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="hdmi_vga_wrapper.ltx"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
@@ -48,8 +50,6 @@
   <File Type="PHYSOPT-DCP" Name="hdmi_vga_wrapper_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="hdmi_vga_wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="hdmi_vga_wrapper_postroute_physopt_bb.dcp"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="hdmi_vga_wrapper_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="hdmi_vga_wrapper_methodology_drc_routed.pb"/>
   <File Type="ROUTE-DRC-RPX" Name="hdmi_vga_wrapper_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="hdmi_vga_wrapper_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="hdmi_vga_wrapper.pdi"/>
@@ -145,6 +145,6 @@
     <Step Id="write_device_image"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="hdmi_vga_dvi2rgb_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="hdmi_vga_rgb2vga_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="hdmi_vga_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="hdmi_vga_rgb2vga_0_0"/>
 </GenRun>

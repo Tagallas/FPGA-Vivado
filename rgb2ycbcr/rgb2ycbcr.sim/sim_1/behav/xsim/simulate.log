@@ -1,2 +1,2 @@
 Time resolution is 1 ps
-$stop called at time : 24 ns : File "C:/Users/wojte/Desktop/FPGA-Vivado/rgb2ycbcr/rgb2ycbcr.srcs/sim_1/imports/new/tb_rgb2ycbcr.v" Line 58
+$finish called at time : 24 ns : File "C:/Users/wojte/Desktop/FPGA-Vivado/rgb2ycbcr/rgb2ycbcr.srcs/sim_1/imports/new/tb_rgb2ycbcr.v" Line 58
