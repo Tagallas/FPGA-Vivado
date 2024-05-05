@@ -45,7 +45,7 @@ wire [7:0]bin;
 assign Cb = pixel_in[15:8];
 assign Cr = pixel_in[7:0];
 
-assign bin = (Cb > Ta && Cb < Tb && Cr > Tc && Cr < Td ) ? 8'hff : 8'h0;
+assign bin = (Cb > Ta && Cb < Tb && Cr > Tc && Cr < Td ) ? 8'h0 : 8'hff;
 
 assign pixel_out = {bin, bin, bin};
 //assign pixel_out = 24'hffffff;

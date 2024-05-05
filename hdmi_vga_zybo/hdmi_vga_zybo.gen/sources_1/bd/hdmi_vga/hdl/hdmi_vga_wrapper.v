@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Apr  6 15:14:01 2024
+//Date        : Mon Apr 29 16:59:32 2024
 //Host        : LAPTOP-OULVKFP7 running 64-bit major release  (build 9200)
 //Command     : generate_target hdmi_vga_wrapper.bd
 //Design      : hdmi_vga_wrapper
@@ -18,6 +18,7 @@ module hdmi_vga_wrapper
     hdmi_in_ddc_scl_io,
     hdmi_in_ddc_sda_io,
     hdmi_out_en,
+    sw,
     sys_clock,
     vga_pBlue,
     vga_pGreen,
@@ -32,6 +33,7 @@ module hdmi_vga_wrapper
   inout hdmi_in_ddc_scl_io;
   inout hdmi_in_ddc_sda_io;
   output [0:0]hdmi_out_en;
+  input [2:0]sw;
   input sys_clock;
   output [4:0]vga_pBlue;
   output [5:0]vga_pGreen;
@@ -53,6 +55,7 @@ module hdmi_vga_wrapper
   wire hdmi_in_ddc_sda_o;
   wire hdmi_in_ddc_sda_t;
   wire [0:0]hdmi_out_en;
+  wire [2:0]sw;
   wire sys_clock;
   wire [4:0]vga_pBlue;
   wire [5:0]vga_pGreen;
@@ -83,6 +86,7 @@ module hdmi_vga_wrapper
         .hdmi_in_ddc_sda_o(hdmi_in_ddc_sda_o),
         .hdmi_in_ddc_sda_t(hdmi_in_ddc_sda_t),
         .hdmi_out_en(hdmi_out_en),
+        .sw(sw),
         .sys_clock(sys_clock),
         .vga_pBlue(vga_pBlue),
         .vga_pGreen(vga_pGreen),

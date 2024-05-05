@@ -64,9 +64,19 @@ wire lut_vsync;
 wire [7:0] lut_red;
 wire [7:0] lut_green;
 wire [7:0] lut_blue;
-reg [2:0] sw=3'b010;
+reg [2:0] sw=3'b011;
 
-vp vp_i (
+wire [10:0]x;
+wire [9:0]y;
+
+wire [19:0]m00;
+wire [31:0]m01;
+wire [31:0]m10;
+
+vp #(
+    .IMG_H(64),
+    .IMG_W(64)
+)vp_i (
     .clk(rx_pclk),
     .de_in(rx_de),
     .h_sync_in(rx_hsync),
@@ -77,7 +87,13 @@ vp vp_i (
     .de_out(lut_de),
     .h_sync_out(lut_hsync),
     .v_sync_out(lut_vsync),
-    .pixel_out({lut_red,lut_green,lut_blue})
+    .pixel_out({lut_red,lut_green,lut_blue}),
+    
+    .x(x),
+    .y(y),
+    .m001(m00),
+    .m101(m10),
+    .m011(m01)
 );
 	 
 	 

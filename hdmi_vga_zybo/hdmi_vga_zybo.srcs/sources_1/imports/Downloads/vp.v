@@ -20,7 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module vp(
+module vp#(
+    parameter IMG_W=1280,
+    parameter IMG_H=720
+)(
     input clk,
     input de_in,
     input h_sync_in,
@@ -31,7 +34,13 @@ module vp(
     output de_out,
     output h_sync_out,
     output v_sync_out,
-    output [23:0]pixel_out
+    output [23:0]pixel_out,
+    
+    output [10:0]x,
+    output [9:0]y,
+    output [19:0]m001,
+    output [31:0]m011,
+    output [31:0]m101
     );
 
 wire [23:0]rgb_mux[7:0];
@@ -43,6 +52,9 @@ assign rgb_mux[0] = pixel_in;
 assign de_mux[0] = de_in;
 assign hsync_mux[0] = h_sync_in;
 assign vsync_mux[0] = v_sync_in;
+
+wire [10:0]xsc;
+wire [9:0]ysc;
 
 rgb2ycbcr_0 rgb2ycbcr(
     .clk(clk),
@@ -67,11 +79,51 @@ binarization bin(
     .pixel_out(rgb_mux[2])
 );
 
+
+centroid #(
+    .IMG_H(IMG_H),
+    .IMG_W(IMG_W)
+)cent(
+    .clk(clk),
+    .ce(1'b1),
+    .rst(1'b0),
+    .de(de_mux[2]),
+    .mask(rgb_mux[2][0]),
+    .vsync(vsync_mux[2]),
+    .hsync(hsync_mux[2]),
+    .x(xsc),
+    .y(ysc),
+    .m001(m001),
+    .m101(m101),
+    .m011(m011)
+);
+
+vis_centroid #(
+    .IMG_H(IMG_H),
+    .IMG_W(IMG_W)
+)visualization(
+    .clk(clk),
+    .de(de_mux[2]),
+    .vsync(vsync_mux[2]),
+    .hsync(hsync_mux[2]),
+    .xsc(xsc),
+    .ysc(ysc),
+    .pixel_in(rgb_mux[2]),
+    .pixel_out(rgb_mux[3])
+);
+
+//assign rgb_mux[3] = rgb_mux[2];
+assign de_mux[3] = de_mux[2];
+assign hsync_mux[3] = hsync_mux[2];
+assign vsync_mux[3] = vsync_mux[2];
+
 assign pixel_out = rgb_mux[sw];
 assign de_out = de_mux[sw];
 assign h_sync_out = hsync_mux[sw];
 assign v_sync_out = vsync_mux[sw];
 
+assign x=xsc;
+assign y=ysc;
 //reg r_de = 0;
 //reg r_hsync = 0;
 //reg r_vsync = 0;

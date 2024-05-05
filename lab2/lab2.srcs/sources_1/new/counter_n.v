@@ -39,7 +39,7 @@ begin
     else
     if(ce) 
         if (val+1 >= N)
-            val = 0;
+            val <= 0;
         else
             val<=val+1;
     else val<=val;

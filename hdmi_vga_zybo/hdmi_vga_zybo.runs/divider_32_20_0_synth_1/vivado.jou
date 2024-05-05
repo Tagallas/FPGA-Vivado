@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Tue Apr 30 12:26:50 2024
+# Process ID: 14128
+# Current directory: C:/Users/wojte/Desktop/FPGA-Vivado/hdmi_vga_zybo/hdmi_vga_zybo.runs/divider_32_20_0_synth_1
+# Command line: vivado.exe -log divider_32_20_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source divider_32_20_0.tcl
+# Log file: C:/Users/wojte/Desktop/FPGA-Vivado/hdmi_vga_zybo/hdmi_vga_zybo.runs/divider_32_20_0_synth_1/divider_32_20_0.vds
+# Journal file: C:/Users/wojte/Desktop/FPGA-Vivado/hdmi_vga_zybo/hdmi_vga_zybo.runs/divider_32_20_0_synth_1\vivado.jou
+# Running On: LAPTOP-OULVKFP7, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 16861 MB
+#-----------------------------------------------------------
+source divider_32_20_0.tcl -notrace
