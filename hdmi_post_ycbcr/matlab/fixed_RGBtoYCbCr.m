@@ -62,30 +62,46 @@ reka_ycbcr = cat(3, Y_i, Cb_i, Cr_i);
 % K = imabsdiff(reka_ycbcr, reka);
 % figure
 % imshow(K,[])
+% 
+% m00 = 0;
+% m10 = 0;
+% m01 = 0;
+% for i = 1:height
+%     for j = 1:width
+%         ii = i-1;
+%         jj = j-1;
+%         m00 = m00+bin(i,j);
+%         m10 = m10+(ii*bin(i,j));
+%         m01 = m01+(jj*bin(i,j));
+%     end
+% end
+% xsc = round(m10/m00);
+% ysc = round(m01/m00);
+% 
+% xsc_f = fi(xsc, 0, 11, 0);
+% ysc_f = fi(xsc, 0, 11, 0);
+% m00_f = fi(m00, 0, 20, 0);
+% m01_f = fi(m01, 0, 32, 0);
+% m10_f = fi(m10, 0, 32, 0);
+% 
+% hex(xsc_f)
+% hex(ysc_f)
+% hex(m00_f)
+% hex(m01_f)
+% hex(m10_f)
+subplot(2, 2, 1);
+imshow(bin);
+title('Binary mask')
 
-m00 = 0;
-m10 = 0;
-m01 = 0;
-for i = 1:height
-    for j = 1:width
-        ii = i-1;
-        jj = j-1;
-        m00 = m00+bin(i,j);
-        m10 = m10+(ii*bin(i,j));
-        m01 = m01+(jj*bin(i,j));
-    end
-end
-xsc = round(m10/m00);
-ysc = round(m01/m00);
+subplot(2, 2, 2);
+filtered = medfilt2(bin, [5,5]);
+filtered(1:2,:)=0; filtered(63:64,:)=0; filtered(:,1:2)=0; filtered(:,63:64)=0;
+imshow(filtered)
+title('Filtration')
 
-xsc_f = fi(xsc, 0, 11, 0);
-ysc_f = fi(xsc, 0, 11, 0);
-m00_f = fi(m00, 0, 20, 0);
-m01_f = fi(m01, 0, 32, 0);
-m10_f = fi(m10, 0, 32, 0);
+reka = imread('filt2.ppm');
+subplot(2, 2, 3);
+title('FPGA filtration')
+imshow(reka)
 
-hex(xsc_f)
-hex(ysc_f)
-hex(m00_f)
-hex(m01_f)
-hex(m10_f)
+

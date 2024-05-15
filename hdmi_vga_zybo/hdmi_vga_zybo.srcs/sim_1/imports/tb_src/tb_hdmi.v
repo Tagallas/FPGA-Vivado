@@ -64,7 +64,7 @@ wire lut_vsync;
 wire [7:0] lut_red;
 wire [7:0] lut_green;
 wire [7:0] lut_blue;
-reg [2:0] sw=3'b011;
+reg [2:0] sw=3'b100;
 
 wire [10:0]x;
 wire [9:0]y;
@@ -75,7 +75,8 @@ wire [31:0]m10;
 
 vp #(
     .IMG_H(64),
-    .IMG_W(64)
+    .IMG_W(64),
+    .H_SIZE(83)
 )vp_i (
     .clk(rx_pclk),
     .de_in(rx_de),

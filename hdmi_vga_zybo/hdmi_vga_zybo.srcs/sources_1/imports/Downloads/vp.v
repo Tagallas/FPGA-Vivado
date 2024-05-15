@@ -22,7 +22,8 @@
 
 module vp#(
     parameter IMG_W=1280,
-    parameter IMG_H=720
+    parameter IMG_H=720,
+    parameter H_SIZE=1299
 )(
     input clk,
     input de_in,
@@ -110,6 +111,20 @@ vis_centroid #(
     .ysc(ysc),
     .pixel_in(rgb_mux[2]),
     .pixel_out(rgb_mux[3])
+);
+
+median5x5 #(
+    .H_SIZE(H_SIZE)
+)filtration(
+    .clk(clk),
+    .de_in(de_mux[2]),
+    .mask(rgb_mux[2][0]),
+    .vsync_in(vsync_mux[2]),
+    .hsync_in(hsync_mux[2]),
+    .pixel_out(rgb_mux[4]),
+    .de_out(de_mux[4]),
+    .vsync_out(vsync_mux[4]),
+    .hsync_out(hsync_mux[4])
 );
 
 //assign rgb_mux[3] = rgb_mux[2];
