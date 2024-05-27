@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Apr 29 16:59:33 2024" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat May 25 11:19:19 2024" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo:part0:1.0" DEVICE="7z010" NAME="hdmi_vga" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -42,6 +42,11 @@
     <PORT DIR="O" LEFT="0" NAME="hdmi_out_en" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="sw" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sw">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="vp_0" PORT="sw"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="hdmi_in_ddc_scl_i" SIGIS="undef" SIGNAME="dvi2rgb_0_SCL_I">
@@ -92,11 +97,6 @@
     <PORT DIR="I" LEFT="2" NAME="hdmi_in_data_n" RIGHT="0" SIGIS="undef" SIGNAME="dvi2rgb_0_TMDS_Data_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="dvi2rgb_0" PORT="TMDS_Data_n"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="2" NAME="sw" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sw">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="vp_0" PORT="sw"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>

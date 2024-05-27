@@ -21,7 +21,7 @@
 
 
 module median5x5 #(
-    parameter H_SIZE = 1299
+    parameter H_SIZE = 1650
 )(
     input clk,
     input de_in,
@@ -110,25 +110,27 @@ module median5x5 #(
         D54 <= D53;
         D55 <= D54;
 
-        sum_1 = D11[3] + D12[3] + D13[3] + D14[3] + D15[3];
-        sum_2 = D21[3] + D22[3] + D23[3] + D24[3] + D25[3];
-        sum_3 = D31[3] + D32[3] + D33[3] + D34[3] + D35[3];
-        sum_4 = D41[3] + D42[3] + D43[3] + D44[3] + D45[3];
-        sum_5 = D51[3] + D52[3] + D53[3] + D54[3] + D55[3];
-        sum_all = sum_1 + sum_2 + sum_3 + sum_4 + sum_5;
+        sum_1 <= D11[3] + D12[3] + D13[3] + D14[3] + D15[3];
+        sum_2 <= D21[3] + D22[3] + D23[3] + D24[3] + D25[3];
+        sum_3 <= D31[3] + D32[3] + D33[3] + D34[3] + D35[3];
+        sum_4 <= D41[3] + D42[3] + D43[3] + D44[3] + D45[3];
+        sum_5 <= D51[3] + D52[3] + D53[3] + D54[3] + D55[3];
+        sum_all <= sum_1 + sum_2 + sum_3 + sum_4 + sum_5;
     end
 
     wire context_valid;
-    assign context_valid = D11[2] & D12[2] & D13[2] & D14[2] & D15[2] & D21[2] & D22[2] & D23[2] & D24[2] & D25[2] &
-    D31[2] & D32[2] & D33[2] & D34[2] & D35[2] & D41[2] & D42[2] & D43[2] & D44[2] & D45[2] &
-    D51[2] & D52[2] & D53[2] & D54[2] & D55[2];
+    assign context_valid = D11[2] & D12[2] & D13[2] & D14[2] & D15[2] & 
+                           D21[2] & D22[2] & D23[2] & D24[2] & D25[2] & 
+                           D31[2] & D32[2] & D33[2] & D34[2] & D35[2] & 
+                           D41[2] & D42[2] & D43[2] & D44[2] & D45[2] & 
+                           D51[2] & D52[2] & D53[2] & D54[2] & D55[2];
     wire [3:0] centr_pixel;
     assign centr_pixel = {context_valid, D33[2], D33[1], D33[0]};
     wire [3:0] centr_pixel_delay;
 
     register_delay #(
-    .N(4),
-    .DELAY(2)
+        .N(4),
+        .DELAY(2)
     )  one_delay (
         .clk(clk),
         .idata(centr_pixel),
@@ -139,7 +141,7 @@ module median5x5 #(
     wire [7:0]mask_new;
     assign mask_new = sum_all > 5'd12 ? 255 : 0;
     
-    assign pixel_out = centr_pixel_delay[3] == 1 ? {mask_new, mask_new, mask_new} : 0;
+    assign pixel_out = centr_pixel_delay[3] == 1 ? {mask_new, mask_new, mask_new} : {8'b0, 8'b0, 8'b0};
 
     assign de_out = centr_pixel_delay[2];
     assign hsync_out = centr_pixel_delay[1];

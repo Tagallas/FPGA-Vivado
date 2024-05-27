@@ -23,7 +23,7 @@
 module vp#(
     parameter IMG_W=1280,
     parameter IMG_H=720,
-    parameter H_SIZE=1299
+    parameter H_SIZE=1650
 )(
     input clk,
     input de_in,
