@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../soft_cpu.srcs/sources_1/new/cpu_module.v" \
+"../../../../soft_cpu.srcs/sources_1/imports/Downloads/d_mem.v" \
+"../../../../soft_cpu.srcs/sources_1/new/i_mem.v" \
+"../../../../soft_cpu.srcs/sources_1/new/modules.v" \
+"../../../../soft_cpu.srcs/sim_1/new/tb_cpu_module.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

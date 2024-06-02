@@ -1,0 +1,20 @@
+mov Rd, Rx = 0x 00 1Rx 6Rd 00 - (Rd<-Rx)
+movi Rd, imm = 0x 00 16 8Rd imm
+nop = 0x00000700
+jump Rx = 0x 03 1Rx 67 00
+jump imm = 0x 03 30 87 imm
+jz Rx, imm = 0x 01 3Rx 87 imm
+jnz Rx, imm = 0x 02 3Rx 87 imm
+add Rd, Rx, Ry = 0x 00 1Rx RyRd 00
+addi Rd, Rx, imm = 0x 00 1Rx 8Rd imm
+and Rd, Rx, Ry = 0x 00 0Rx RyRd 00
+andi Rd, Rx, imm = 0x 00 0Rx 8Rd imm
+load Rd, Rx = 0x 00 1Rx 6[8+Rd] 00
+loadi Rd, imm = 0x 00 16 8[8+Rd] imm
+
+0. 0x00168000
+1. 0x00168104
+2. 0x00108001
+3. 0x00101200
+4. 0x01328702
+5. 0x00168301

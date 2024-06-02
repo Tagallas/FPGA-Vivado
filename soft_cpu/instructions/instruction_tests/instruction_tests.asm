@@ -1,0 +1,14 @@
+movi R0, 0x0A
+loadi R1, 0x00
+jump R0
+addi R1, R1, 0x01
+jumpi 0x0A
+movi R0, 0xFF
+load R2, R1
+loadi R3, 0x02
+jumpi 0x0D
+add R0, R1, R0
+jz R1, 0x04
+jnz R1, 0x07
+and R4, R2, R3
+andi R5, R4, 0xF0
